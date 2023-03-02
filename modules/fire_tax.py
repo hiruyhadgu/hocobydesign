@@ -2,6 +2,7 @@ import pandas as pd
 from modules.assessment_tables_and_income_tax_per_unit import plan_area_assessment_tables
 from modules.projected_units import plan_area
 from modules.projected_ronresidential_build import non_res_builds
+import streamlit as st
 
 
 regions = ['Columbia','Elkridge','Ellicott City', 'Rural West','South East']
@@ -13,6 +14,7 @@ fire_tax_by_region = {}
 total_fire_tax_by_region = pd.DataFrame(columns=years)
 non_res_portion_by_region ={}
 
+@st.cache_data
 def project_fire_tax():
     for i in range(len(regions)):
         r = regions[i]

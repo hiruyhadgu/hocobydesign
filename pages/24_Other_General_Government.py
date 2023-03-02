@@ -62,7 +62,8 @@ expander6 = st.expander('Total Other General Government Expenditure')
 with expander6:
     st.markdown('### Total Other General Government Expenditure')
     to_display = other_general_govt_total()
-    to_display = to_display.drop(index='Total')
+    # print(to_display)
+    # to_display = to_display.drop(index='Total')
     to_display.loc['Total'] = to_display.loc['Circuit Court':'Economic Development Authority', years].sum()
     st.dataframe(to_display.style.format('$ {:,.2f}'))
 

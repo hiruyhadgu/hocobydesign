@@ -2,6 +2,7 @@ import pandas as pd
 from modules.projected_units import plan_area
 from modules.assessment_tables_and_income_tax_per_unit import assessment_tables, plan_area_assessment_tables
 from modules.projected_ronresidential_build import non_res_builds
+import streamlit as st
 
 
 regions = ['Columbia','Elkridge','Ellicott City', 'Rural West','South East']
@@ -24,6 +25,7 @@ multiplier = {'rural_west': rural_west, 'east': east}
 
 charge = {'warehouse':0.86, 'rest':1.67}
 
+@st.cache_data
 def res_road_excise_tax():
     for i in range(len(regions)):
         
@@ -48,6 +50,7 @@ non_res_assessments = pd.DataFrame(columns=years)
 non_res_collapse = pd.DataFrame(columns=years)
 road_excise_tax_res_non_res = pd.DataFrame(columns=years)
 
+@st.cache_data
 def non_res_road_excise_tax():
     for r in regions:
 
@@ -63,6 +66,7 @@ def non_res_road_excise_tax():
 
     return non_res_by_office_warehouse, non_res_road_taxes_per_region
 
+@st.cache_data
 def road_excise_tax():
         
     for r in regions:

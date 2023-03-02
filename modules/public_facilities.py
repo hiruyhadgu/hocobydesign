@@ -2,6 +2,7 @@ import pandas as pd
 from modules.get_tables import public_facilities_expense
 from modules.projected_units import people_generated
 from modules.employment_data import job_type
+import streamlit as st
 
 regions = ['Columbia','Elkridge','Ellicott City', 'Rural West','South East']
 assessed_cat = ['table_columbia', 'table_elkridge','table_ellicott_city','table_rural_west','table_south_east']
@@ -15,6 +16,7 @@ per_captia_category_values = {}
 projected_per_capita_tax = pd.DataFrame(columns=years)
 results_for_one_cat_all_regions = pd.DataFrame(columns=years)
 
+@st.cache_data
 def public_facilities_per_capita():
     r_people= people_generated()[1].loc['Columbia':'South East'].astype(float)
 
@@ -32,6 +34,8 @@ projected_per_capita_employee_tax = pd.DataFrame(columns=years)
 result_for_one_cat_ce= pd.DataFrame(columns=years)
 results_for_one_cat_all_regions_ce = pd.DataFrame(columns=years)
 emp_res_count = {}
+
+@st.cache_data
 def public_facilities_per_capita_employee():
     
     for i in per_capita_employee_table.index.to_list():

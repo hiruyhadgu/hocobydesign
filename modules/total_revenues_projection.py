@@ -9,13 +9,15 @@ from modules.hotel_motel_taxes import hotel_motel
 from modules.admissions_amusement_taxes import admission_amusement
 from modules.other_revenues import per_capita, per_employee, per_capita_employee
 import pandas as pd
-
+import streamlit as st
 
 year1=2023
 years = [year1+x for x in range(18)]
 operating_revenue_projections = pd.DataFrame(columns=years)
 capital_revenue_projections = pd.DataFrame(columns=years)
 other_local_taxes = pd.DataFrame(columns=years)
+
+@st.cache_data
 def compiled_revenue_projections():
 
     other_rev_per_capita = per_capita()[1]
@@ -44,6 +46,7 @@ def compiled_revenue_projections():
 
 cumulative_revenue_projections = pd.DataFrame(columns=years)
 
+@st.cache_data
 def cumulative_projections():
 
     cumulative_operting_revenue_projections = compiled_revenue_projections()[0].cumsum(axis=1)

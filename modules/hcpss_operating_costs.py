@@ -3,12 +3,14 @@ import numpy as np
 from modules.get_tables import approved_operating_budget
 from modules.get_tables import school_enrollment
 from modules.student_generation_rate import student_generation_rate
+import streamlit as st
 
 
 regions = ['Columbia','Elkridge','Ellicott City', 'Rural West','South East']
 year1=2023
 years = [year1+x for x in range(18)]
 
+@st.cache_data
 def school_operating_budget ():
     operating_cost = approved_operating_budget().loc[('Howard County Funding','Howard County-Above MOE'),:]
     operating_cost.loc['Total Howard County Funding']=operating_cost.loc['Howard County Funding':'Howard County-Above MOE',:].sum()
@@ -26,6 +28,7 @@ def school_operating_budget ():
 
 total_projected_operating_cost = pd.DataFrame(columns=years)
 
+@st.cache_data
 def school_projected_operating_budget(method):
 
     if method == 'hocobydesign':

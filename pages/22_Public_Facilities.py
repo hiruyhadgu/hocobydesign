@@ -62,7 +62,7 @@ expander6 = st.expander('Total Public Facilities Expenses')
 with expander6:
     st.markdown('### Total Public Facilities Expenses')
     todisplay = public_facilities_expenditure()
-    todisplay = todisplay.drop(index='Total')
+    # todisplay = todisplay.drop(index='Total')
     todisplay.loc['Total'] = todisplay.loc['Facilities - Adminstration':'Soil Conservation District',years].sum()
     st.dataframe(todisplay.style.format('$ {:,.2f}'))
 

@@ -13,7 +13,7 @@ from modules.parks_and_rec_capital_cost import parks_recs_per_capita
 from modules.other_county_capital_expenditure import other_general_county_expenditure
 from modules.non_departmental_services import non_departmental_per_capita_employee
 import pandas as pd
-
+import streamlit as st
 
 year1=2023
 years = [year1+x for x in range(18)]
@@ -23,7 +23,7 @@ other_local_taxes = pd.DataFrame(columns=years)
 
 operating_expenditure_projections = pd.DataFrame(columns=years)
 
-
+@st.cache_data
 def compiled_operating_expenditure_projections(method):
    
     operating_expenditure_projections.loc['HCPSS - Operating Costs'] = school_projected_operating_budget(method).loc['Columbia':'South East',years].sum().cumsum() + hcpss_opeb_trust_fund().loc['Columbia':'South East',years].sum().cumsum()
@@ -40,6 +40,7 @@ def compiled_operating_expenditure_projections(method):
 
 capital_expenditure_projections = pd.DataFrame(columns=years)
 
+@st.cache_data
 def compiled_capital_expenditure_projections(method):
 
     capital_expenditure_projections.loc['HCPSS - Captial Costs'] =projected_school_construction(method)[4].loc['Columbia':'South East',years].sum()+\
