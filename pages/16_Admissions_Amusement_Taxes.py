@@ -6,7 +6,7 @@ sub_assessed_cat = ['table_columbia', 'table_elkridge','table_ellicott_city','ta
 year1=2023
 years = [year1+x for x in range(18)]
 
-st.header('Projected Admissions and Amusement Revenues')
+st.header(':admission_tickets: Projected Admissions and Amusement Revenues')
 
 st.write("""
 The fiscal impact methdology and analysis calculates per unit income tax revenue and these values are

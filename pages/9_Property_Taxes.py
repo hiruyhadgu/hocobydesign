@@ -6,7 +6,7 @@ regions = ['Columbia','Elkridge','Ellicott City', 'Rural West','South East']
 year1=2023
 years = [year1+x for x in range(18)]
 
-st.header('Projected Property Tax Revenues')
+st.header('💵 Projected Property Tax Revenues')
 
 st.write("""
 The fiscal impact methdology and analysis computes property taxes from real property taxes, personal/merchant taxes,

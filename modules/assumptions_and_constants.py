@@ -2,15 +2,24 @@ import pandas as pd
 import sqlite3 as db
 from modules.get_tables import school_enrollment, bea_employment_rate
 import numpy as np
+import streamlit as st
 
 conn = db.connect('hocobydesign.db', check_same_thread=False)
 c = conn.cursor()
 
+"""
+January 23, 2023 updates
+The county released an updated version of the analysis and assumptions. In the updated version, the county makes teh following changes:
+* Annual Inflation of 2.5% (was 0)
+* Affordability ratio of 32% for all owner units (was 28%)
+* Mortgate rate of 6.5% for all housing types (was 5%)
+"""
+
 def assumptions():
     assumptions = [['Assessed Value Ratio (Residential)', 'Assessed Value Ratio (Non Residential)', 'Affordability Ratio','Mortgage Interest Rate',\
                     'Down Payment','Income Tax Rate','HOA Fee','SFD/SFA Insurance','Condo Insurance','Rental Affordability Ratio','MIHU Tax Adjustment'\
-                        ,'MIHU','Projected Years','Bond Interest Rate', 'Bond Debt Financing (years)'],\
-                        [0.92, 1, 0.28, 0.05, 0.2, 0.032,50, 50, 33.33,0.32,0.6,0.15,18,0.045,20]]
+                        ,'MIHU','Projected Years','Bond Interest Rate', 'Bond Debt Financing (years)','Inflation Rate'],\
+                        [0.92, 1, 0.32 , 0.065, 0.2, 0.032,50, 50, 33.33,0.32,0.6,0.15,18,0.045,20,0.025]]
     assumptions = pd.DataFrame(assumptions)
     assumptions = assumptions.T
     assumptions.columns = ['Category','Value']
@@ -68,17 +77,26 @@ def jobs_to_building_ratio():
     jobs_to_building = pd.DataFrame(jobs_to_building, columns=['Category','Ratio (sq. ft per employee)']).set_index('Category')
 
     return jobs_to_building
-
-def gross_income():
-    non_rental_adu = pd.DataFrame([['Columbia',221695,154469, 90941],\
+"""
+non_rental_adu_december_2022 = pd.DataFrame([['Columbia',221695,154469, 90941],\
                                     ['Elkridge',155452,116959,99419],\
                                     ['Ellicott City',220373,166024,91445],\
                                     ['South East', 203266,119002,84077],\
                                     ['Rural West', 277369]])
+
+ rental_adu = [['Rental Apts', 85313],['Accessory Dwelling Uint', 62535]]
+"""
+
+def gross_income():
+    non_rental_adu = pd.DataFrame([['Columbia',220683,153559, 90217],\
+                                    ['Elkridge',154541,116107,98682],\
+                                    ['Ellicott City',219363,165097,90720],\
+                                    ['South East', 202281,118147,83364],\
+                                    ['Rural West', 276271]])
     non_rental_adu.columns=['City','SFD', 'SFA','Condo_Apt']
     non_rental_adu.set_index('City', inplace=True)
 
-    rental_adu = [['Rental Apts', 85313],['Accessory Dwelling Uint', 63305]]
+    rental_adu = [['Rental Apts', 85313],['Accessory Dwelling Uint', 62535]]
     rental_adu = pd.DataFrame(rental_adu)
     rental_adu.columns = ['Category', 'Value']
     rental_adu.set_index('Category', inplace=True)
@@ -230,3 +248,13 @@ def hcpss_debt_service():
     debt_service = debt_service.set_index('Year')
     debt_service.loc['Average'] = debt_service['HCPSS Debt Service'].mean()
     return debt_service
+
+def general_obligation_bonds_trend():
+    go_bonds = [['FY2016',1302313700,1274243935],['FY2017',1398915398,1302313700],['FY2018',1504921754,1398915398],\
+     ['FY2019',1597386342,1507431350],['FY2020',1702302822,1597386342],['FY2021',1773932147,1702302822],\
+    ['FY2022',1744774912,1773932147]]
+    go_bonds = pd.DataFrame(go_bonds, columns=['Fiscal Year', 'Ending','Beginning']).set_index('Fiscal Year')
+    go_bonds['Difference']=go_bonds['Ending'] - go_bonds['Beginning']
+    go_bonds.loc['Average',['Difference']]=go_bonds['Difference'].mean()
+
+    return go_bonds

@@ -9,7 +9,7 @@ year1=2023
 years = [year1+x for x in range(18)]
 
 
-st.header('Projected Fire and Rescue General Fund Expenditure')
+st.header(':fire_engine: :ambulance: Projected Fire and Rescue General Fund Expenditure')
 
 st.markdown('---')
 

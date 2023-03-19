@@ -1,7 +1,7 @@
 import streamlit as st
 from modules.employment_data import job_type
 
-st.header('Projected Annual Employment')
+st.header(':factory_worker: :farmer: :scientist: :office_worker: Projected Annual Employment')
 
 st.write("""
 The fiscal impact methdology and analysis assumes that 31,500 jobs will be created by 2040. The jobs

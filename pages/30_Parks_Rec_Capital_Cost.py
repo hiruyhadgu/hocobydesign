@@ -1,7 +1,7 @@
 import streamlit as st
 from modules.parks_and_rec_capital_cost import parks_recs_per_capita
 
-st.header('Projected Parks and Recreation Capital Cost General Expenditure')
+st.header(':national_park: Projected Parks and Recreation Capital Cost General Expenditure')
 
 st.markdown('---')
 

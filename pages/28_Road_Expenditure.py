@@ -6,7 +6,7 @@ assessed_cat = ['table_columbia', 'table_elkridge','table_ellicott_city','table_
 year1=2023
 years = [year1+x for x in range(18)]
 
-st.header('Projected Road Capital Expenditure')
+st.header(':construction: Projected Road Capital Expenditure')
 
 st.markdown('---')
 

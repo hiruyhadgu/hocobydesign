@@ -1,7 +1,7 @@
 import streamlit as st
 from modules.projected_ronresidential_build import non_res_builds
 
-st.header('Projected Non Residential Expansion')
+st.header(':office: :department_store: :factory: Projected Non Residential Expansion')
 
 st.write("""
 The fiscal impact methdology and analysis assumes that 31,500 jobs will be created by 2040. The jobs

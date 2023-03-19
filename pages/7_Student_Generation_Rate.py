@@ -1,7 +1,7 @@
 import streamlit as st
 from modules.student_generation_rate import student_generation_rate
 
-st.header('Projected Student Generation Rate')
+st.header(':student: Projected Student Generation Rate')
 
 regions = ['Columbia','Elkridge','Ellicott City', 'Rural West','South East']
 year1=2023

@@ -5,6 +5,13 @@ from modules.tax_calc import income_tax, rental_income_tax, adu_income_tax
 from modules.get_tables import table2_1
 from modules.assumptions_and_constants import gross_income
 
+"""
+January 23, 2023 updates
+The county released an updated version of the analysis and assumptions. In the updated version, the county makes teh following changes:
+* Annual Inflation of 2.5% (was 0)
+* Affordability ratio of 32% for all owner units (was 28%)
+* Mortgate rate of 6.5% for all housing types (was 5%)
+"""
 
 assessed_cat = ['table_columbia', 'table_elkridge','table_ellicott_city',\
          'table_rural_west','table_south_east','table_non_res','rental_apts','adus']
@@ -12,6 +19,8 @@ assessed_cat = ['table_columbia', 'table_elkridge','table_ellicott_city',\
 all_regions = ['Columbia','Elkridge','Ellicott City',\
       'Rural West','South East','Non Residential','Rental Apts','Accessory Dwelling Unit']
 
+rental_assessment = pd.DataFrame([['dec_2022', 383395, 352723],['jan_2023',308633, 283942]], columns=['version','market_value',  'assessed_value']).set_index('version')
+non_res_assessment = pd.DataFrame([['dec_2022', 180, 245, 187, 128],['jan_2023',162, 221, 168, 115]], columns=['version','retail',  'ab_office', 'bcflex_office', 'ind_manu_ware']).set_index('version')
 def assessment_tables():
    assessed_value_category={}
    indexer = [(4,7),(9,12),(14,17),(19,22), (24,27),(30,34),(28,29),(7,8)]
@@ -21,6 +30,13 @@ def assessment_tables():
       r1,r2 = indexer[j]
       assessed_value_category[i]= unpack_assessed_value(table2_1().iloc[r1:r2,1:3],res_no_res[j])
       j=j+1
+      if i == 'rental_apts':
+          assessed_value_category[i].iloc[0,[1,3]]=[rental_assessment.loc['jan_2023','market_value'].squeeze(), rental_assessment.loc['jan_2023','assessed_value'].squeeze()]
+      elif i == 'table_non_res':
+          assessed_value_category[i].iloc[0, [1,3]]=[non_res_assessment.loc['jan_2023', 'retail'].squeeze(),non_res_assessment.loc['jan_2023', 'retail'].squeeze()]
+          assessed_value_category[i].iloc[1, [1,3]]=[non_res_assessment.loc['jan_2023', 'ab_office'].squeeze(),non_res_assessment.loc['jan_2023', 'ab_office'].squeeze()]
+          assessed_value_category[i].iloc[2, [1,3]]=[non_res_assessment.loc['jan_2023', 'bcflex_office'].squeeze(),non_res_assessment.loc['jan_2023', 'bcflex_office'].squeeze()]
+          assessed_value_category[i].iloc[3, [1,3]]=[non_res_assessment.loc['jan_2023', 'ind_manu_ware'].squeeze(),non_res_assessment.loc['jan_2023', 'ind_manu_ware'].squeeze()]
    return assessed_value_category
 
 r_assessment = {}

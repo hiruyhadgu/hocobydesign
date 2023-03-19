@@ -6,7 +6,7 @@ sub_assessed_cat = ['table_columbia', 'table_elkridge','table_ellicott_city','ta
 year1=2023
 years = [year1+x for x in range(18)]
 
-st.header('Projected Hotels and Motels Taxes')
+st.header(':hotel: Projected Hotels and Motels Taxes')
 
 st.write("""
 The fiscal impact methdology and analysis calculates per unit income tax revenue and these values are

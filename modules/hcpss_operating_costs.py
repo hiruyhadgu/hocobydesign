@@ -29,16 +29,23 @@ def school_operating_budget ():
 total_projected_operating_cost = pd.DataFrame(columns=years)
 
 @st.cache_data
-def school_projected_operating_budget(method):
+def school_projected_operating_budget_hocobydesign_method():
 
-    if method == 'hocobydesign':
-        total_projected_operating_cost = student_generation_rate()[3] *school_operating_budget().loc['Spending Per Student (HoCo Funding Only)','FY2023']
-        total_projected_operating_cost.loc['Total'] = total_projected_operating_cost.loc['Columbia':'South East',years].sum()
-    elif method == 'totalfundingmethod':
-        total_projected_operating_cost  = student_generation_rate()[3] *school_operating_budget().loc['Spending Per Student (Total Funding)','FY2023']
-        total_projected_operating_cost.loc['Total'] = total_projected_operating_cost.loc['Columbia':'South East',years].sum()
+    total_projected_operating_cost = student_generation_rate()[3] *school_operating_budget().loc['Spending Per Student (HoCo Funding Only)','FY2023']
+    total_projected_operating_cost.loc['Total'] = total_projected_operating_cost.loc['Columbia':'South East',years].sum()
+    
+    return total_projected_operating_cost
+
+total_projected_operating_cost = pd.DataFrame(columns=years)
+
+@st.cache_data
+def school_projected_operating_budget_total_funding_method():
+
+    total_projected_operating_cost  = student_generation_rate()[3] *school_operating_budget().loc['Spending Per Student (Total Funding)','FY2023']
+    total_projected_operating_cost.loc['Total'] = total_projected_operating_cost.loc['Columbia':'South East',years].sum()
 
     return total_projected_operating_cost
+
 
 
 total_opeb = pd.DataFrame(columns=years)

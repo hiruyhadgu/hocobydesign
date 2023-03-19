@@ -2,7 +2,7 @@ import streamlit as st
 from modules.assumptions_and_constants import assumptions, tax_exemptions, taxes_fees, tax_cat_factors,\
      jobs_to_building_ratio, transfer_tax_allocation, gross_income, hoco_population, education_expenditure_factors,\
         school_construction_cost, hcc_data, non_residential_trip_constants, cip_projection, land_acquisition_cost,\
-            non_residential_vehicle_trips, hcpss_debt_service
+            non_residential_vehicle_trips, hcpss_debt_service, general_obligation_bonds_trend
 from modules.get_tables import student_yields, school_enrollment, road_expenditure
 st.header('Assumptions, Constants, and Factors Used in Projections')
 
@@ -149,6 +149,10 @@ st.markdown('---')
 expander15 = st.expander('Historical Road Construction Spending')
 with expander15:
     st.dataframe(road_expenditure())
+
+expander16 = st.expander('Historical General Obligation Bonds')
+with expander16:
+    st.dataframe(general_obligation_bonds_trend())
 
 # Use Local CSS File
 def local_css(file_name):

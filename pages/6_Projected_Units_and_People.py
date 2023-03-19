@@ -1,7 +1,7 @@
 import streamlit as st
 from modules.projected_units import plan_area, people_generated
 
-st.header('Projected Units and Population')
+st.header(':house_buildings: :people_holding_hands: Projected Units and Population')
 
 st.write("""
 The fiscal impact methdology and analysis assumes that 25,000 units will be developed by 2040.

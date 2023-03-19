@@ -17,3 +17,16 @@ def unpack_assessed_value(val,r_nr):
 
     return val
 
+
+def inflation():
+    inflation_rate = assumptions().loc['Inflation Rate'].squeeze()
+    year1=2023
+    years = [year1+x for x in range(18)]
+    inflation_list = [1+inflation_rate]*len(years)
+    inflation_table = pd.DataFrame([inflation_list], columns=years)
+    inflation_table = inflation_table.pow(range(18))
+    inflation_table=inflation_table.rename(index={0:'rate'})
+    return inflation_table
+
+
+

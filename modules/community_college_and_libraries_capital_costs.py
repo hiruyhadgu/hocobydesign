@@ -8,6 +8,7 @@ year1=2023
 years = [year1+x for x in range(18)]
 
 
+
 total_hcc_capital_costs = pd.DataFrame(columns=years)
 hcc_capital_cost_per_capita = hcc_data().loc['Average','Capital Funds']/hoco_population().loc['2022']
 def hcc_captial_costs():

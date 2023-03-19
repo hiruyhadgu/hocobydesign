@@ -13,12 +13,8 @@ years = [year1+x for x in range(18)]
 expander = st.expander('Howard Community College')
 with expander:
     st.markdown('##### Projected Total HCC Operating Cost')
-    hcc_selected = st.checkbox('Use Students Generated Per Capita Method')
-    if hcc_selected==False:
-        st.dataframe(hcc_expenditure('hocobydesign').style.format('$ {:,.2f}'))
-    # if selected == 'HoCoByDesign':
-    else:
-        st.dataframe(hcc_expenditure('student_per_capita_method').style.format('$ {:,.2f}'))
+    st.dataframe(hcc_expenditure().style.format('$ {:,.2f}'))
+    st.markdown('---')
     st.markdown('##### Projected Total HCC OPEB Trustfund')
     st.dataframe(hcc_opeb_trust_fund().style.format('$ {:,.2f}'))
 
@@ -27,11 +23,7 @@ st.markdown('---')
 expander2 = st.expander('Howard County Library Project')
 with expander2:
     st.markdown('##### Projected Total HCL Operating Cost')
-    hcl_selected = st.checkbox('Use Per Capita Borrowing Method')
-    if hcl_selected==False:
-        st.dataframe(hcl_expenditure('hocobydesign').style.format('$ {:,.2f}'))
-    else:
-        st.dataframe(hcl_expenditure('per_captia_borrowing_cost').style.format('$ {:,.2f}'))
+    st.dataframe(hcl_expenditure().style.format('$ {:,.2f}'))
     st.markdown('---')
     st.markdown('##### Projected Total HCL OPEB Trustfund')
     st.dataframe(hcl_opeb_trust_fund().style.format('$ {:,.2f}'))
