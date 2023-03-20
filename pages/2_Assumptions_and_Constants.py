@@ -150,6 +150,8 @@ expander15 = st.expander('Historical Road Construction Spending')
 with expander15:
     st.dataframe(road_expenditure())
 
+st.markdown('---')
+
 expander16 = st.expander('Historical General Obligation Bonds')
 with expander16:
     st.dataframe(general_obligation_bonds_trend())

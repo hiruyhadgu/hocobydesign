@@ -28,8 +28,8 @@ if select_case:
     st.plotly_chart(fig)
 
 
-case1 = ['HoCoByDesign Approach 50% PAYGO and 50% Debt', '100% PAYGO using county\'s per-student costs',\
-                                              '100% PAYGO using updated per-student costs']
+case1 = ['HoCoByDesign Approach 50% PAYGO and 50% Debt', '100% PAYGO using county\'s per-student costs & roads',\
+                                              '100% PAYGO using updated per-student costs & roads']
 
 select_case1 = st.selectbox('Pick a Method',case1, key=2)
 if select_case1:

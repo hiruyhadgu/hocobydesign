@@ -16,7 +16,7 @@ st.markdown('---')
 
 st.markdown("""
 The County claims residential development pays for itself while using revenue from development to cover costs for
-past captial expenditure. It uses bonds to pay for current capital expenditure and it pays debt service on that expenditure.
+past capital expenditure. It uses bonds to pay for current capital expenditure and it pays debt service on that expenditure.
 The calculation herein provides three methodologies to illustrate the impact of the county's assumptions.
 
 The first method simply reproduces the county approach: 50% PAYGO and 50% Debt,\n
@@ -35,8 +35,8 @@ with expander:
         display_total_expenditure = hcpss_captial_total_expenditure()[0]
         markdown_data = """
         The following table displays the total cost due to school construction, land-acquisition, and capital improvement plan
-        calculated using the county's approach. In this case the county assumes half of the captial expenditure to build schools
-        comes from PAYGO and the remaning is financed by debt.
+        calculated using the county's approach. In this case the county assumes half of the capital expenditure to build schools
+        comes from PAYGO and the remaining is financed by debt.
         """
     elif select_method == method[1]:
         display_projected_cost = projected_school_construction_hocobydesign_method()
@@ -53,8 +53,8 @@ with expander:
         display_land_acquisition = land_acquisition_total_funding_method()
         display_total_expenditure = hcpss_captial_total_expenditure()[2]
         markdown_data = """
-        This table also assumes that the entire cost of to build schools is funded by PAYGO. But the per-student cost is upated to
-        reflect the actual historical costs inccurred by the county over the past few years.
+        This table also assumes that the entire cost of to build schools is funded by PAYGO. But the per-student cost is updated to
+        reflect the actual historical costs incurred by the county over the past few years.
         """
     display_total_expenditure.loc['Total']=display_total_expenditure.loc['Columbia':'South East', years].sum()
     st.markdown(markdown_data)

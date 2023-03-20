@@ -33,9 +33,11 @@ def compiled_operating_expenditure_projections():
 
     for i in range(len(operating_expenditure_case)):
         operating_expenditure_projections = pd.DataFrame(columns=years)
-        operating_expenditure_projections.loc['HCPSS - Operating Costs'] = operating_expenditure_case[i].loc['Columbia':'South East',years].sum().mul(inflation().loc['rate']).cumsum() + hcpss_opeb_trust_fund().loc['Columbia':'South East',years].sum().mul(inflation().loc['rate']).cumsum()
-        operating_expenditure_projections.loc['Community College and Libraries - Operating Costs'] = hcc_expenditure().loc['Columbia':'South East',years].sum().mul(inflation().loc['rate']).cumsum()+hcc_opeb_trust_fund().loc['Columbia':'South East',years].sum().mul(inflation().loc['rate']).cumsum()+\
-            hcl_expenditure().loc['Columbia':'South East',years].sum().mul(inflation().loc['rate'])+hcl_opeb_trust_fund().loc['Columbia':'South East',years].sum().mul(inflation().loc['rate']).cumsum()
+        operating_expenditure_projections.loc['HCPSS - Operating Costs'] = operating_expenditure_case[i].loc['Columbia':'South East',years].sum().mul(inflation().loc['rate']).cumsum()\
+              + hcpss_opeb_trust_fund().loc['Columbia':'South East',years].sum().mul(inflation().loc['rate']).cumsum()
+        operating_expenditure_projections.loc['Community College and Libraries - Operating Costs'] = hcc_expenditure().loc['Columbia':'South East',years].sum().mul(inflation().loc['rate']).cumsum()\
+            +hcc_opeb_trust_fund().loc['Columbia':'South East',years].sum().mul(inflation().loc['rate']).cumsum()+ hcl_expenditure().loc['Columbia':'South East',years].sum().mul(inflation().loc['rate'])\
+                +hcl_opeb_trust_fund().loc['Columbia':'South East',years].sum().mul(inflation().loc['rate']).cumsum()
         operating_expenditure_projections.loc['Public Safety'] = project_public_safety()[1].loc['Total Public Safety'].mul(inflation().loc['rate']).cumsum()
         operating_expenditure_projections.loc['Fire and Rescue'] = project_fire_rescue()[1].loc['Total Fire and Rescue'].mul(inflation().loc['rate']).cumsum()
         operating_expenditure_projections.loc['Public Facilities'] = public_facilities_expenditure().loc['Facilities - Adminstration':'Soil Conservation District',years].sum().mul(inflation().loc['rate']).cumsum()
@@ -48,8 +50,11 @@ def compiled_operating_expenditure_projections():
 capital_expenditure_projections = pd.DataFrame(columns=years)
 
 capital_case_set = {}
-case1 = ['HoCoByDesign Approach 50% PAYGO and 50% Debt', '100% PAYGO using county\'s per-student costs',\
-                                              '100% PAYGO using updated per-student costs']
+case1 = ['HoCoByDesign Approach 50% PAYGO and 50% Debt', '100% PAYGO using county\'s per-student costs & roads',\
+                                              '100% PAYGO using updated per-student costs & roads']
+road_index = [2, 1, 1]
+sum_road_exp = [1,0,0]
+
 @st.cache_data
 def compiled_capital_expenditure_projections():
 
@@ -59,7 +64,10 @@ def compiled_capital_expenditure_projections():
         capital_expenditure_projections.loc['Non Departmental Services'] = non_departmental_per_capita_employee()[1].loc['Columbia':'South East',years].sum().mul(inflation().loc['rate']).cumsum()
         capital_expenditure_projections.loc['Community College and Libraries - Captial Costs'] = hcc_captial_costs().loc['Columbia':'South East',years].sum().mul(inflation().loc['rate']).cumsum()\
             + hcl_captial_costs().loc['Columbia':'South East',years].sum().mul(inflation().loc['rate']).cumsum()
-        capital_expenditure_projections.loc['Roads'] = road_expenditure_per_capita_employee()[2].loc['Columbia':'South East',years].sum().mul(inflation().loc['rate']).cumsum()
+        if i == 0:
+            capital_expenditure_projections.loc['Roads'] = road_expenditure_per_capita_employee()[road_index[i]].loc['Columbia':'South East',years].sum().mul(inflation().loc['rate']).cumsum()
+        else:
+            capital_expenditure_projections.loc['Roads'] = road_expenditure_per_capita_employee()[road_index[i]].loc['Columbia':'South East',years].sum().mul(inflation().loc['rate'])
         capital_expenditure_projections.loc['Fire Stations'] = fire_stations_per_capita_employee()[1].loc['Columbia':'South East',years].sum().mul(inflation().loc['rate']) 
         capital_expenditure_projections.loc['Parks and Recreation'] = parks_recs_per_capita().loc['Columbia':'South East',years].sum().mul(inflation().loc['rate']).cumsum() 
         capital_expenditure_projections.loc['Other County'] = other_general_county_expenditure().loc['Community Renewal':'Bond Anticipation Notes', years].mul(inflation().loc['rate']).cumsum(axis=1).sum()
