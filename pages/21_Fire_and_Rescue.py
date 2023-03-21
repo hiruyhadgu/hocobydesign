@@ -15,7 +15,7 @@ st.markdown('---')
 
 expander = st.expander('Projected Non Residential Trips')
 with expander:
-    select_region = st.selectbox('Select Planning Area',regions, key=1)
+    select_region = st.selectbox('**Select Planning Area**',regions, key=1)
     if select_region:
         st.markdown('##### Projected Non Residential Trips by Planning Area')
         st.dataframe(per_capita_trip_fire_rescue()[0][regions[regions.index(select_region)]].style.format('$ {:,.2f}'))

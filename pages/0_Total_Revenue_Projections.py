@@ -19,6 +19,19 @@ st.header('HoCoByDesign Total Revenue Projections')
 
 st.markdown('---')
 
+st.markdown("""
+
+The following table summarizes the projected revenues over the next 18 years. It reproduces the County's results. Note that the revenue
+figures will not match exaclty. And they are not expected to. If fact, the difference between the County's numbers and the table below illustrate
+the significant risk of projecting revenue over 18 years.
+
+Not a single credible entity makes such a project due to the uncertainties in the input variables. Check out the **Assumptions** page to review
+the vast number of variables that affect the projections.
+
+""")
+
+st.markdown('---')
+
 projected_revenues = cumulative_projections()
 projected_revenues.loc['Total Revenues']=projected_revenues.loc['Total Operating Revenues'] + projected_revenues.loc['Total Capital Revenues']
 st.dataframe(projected_revenues.style.format('$ {:,.2f}'))

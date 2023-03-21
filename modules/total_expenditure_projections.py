@@ -40,7 +40,7 @@ def compiled_operating_expenditure_projections():
                 +hcl_opeb_trust_fund().loc['Columbia':'South East',years].sum().mul(inflation().loc['rate']).cumsum()
         operating_expenditure_projections.loc['Public Safety'] = project_public_safety()[1].loc['Total Public Safety'].mul(inflation().loc['rate']).cumsum()
         operating_expenditure_projections.loc['Fire and Rescue'] = project_fire_rescue()[1].loc['Total Fire and Rescue'].mul(inflation().loc['rate']).cumsum()
-        operating_expenditure_projections.loc['Public Facilities'] = public_facilities_expenditure().loc['Facilities - Adminstration':'Soil Conservation District',years].sum().mul(inflation().loc['rate']).cumsum()
+        operating_expenditure_projections.loc['Public Facilities'] = public_facilities_expenditure().loc['Facilities - Administration':'Soil Conservation District',years].sum().mul(inflation().loc['rate']).cumsum()
         operating_expenditure_projections.loc['Community Services'] = community_services_per_capita()[1].loc['Depart. of Rec. and Parks - General Fund':'Community Service Partnerships', years].sum().mul(inflation().loc['rate']).cumsum()
         operating_expenditure_projections.loc['Other General Government'] = other_general_govt_total().loc['Circuit Court':'Economic Development Authority',years].sum().mul(inflation().loc['rate']).cumsum()
         operating_expenditure_projections.loc['Total Operating Costs'] = operating_expenditure_projections.loc['HCPSS - Operating Costs':'Other General Government',years].sum()
@@ -60,9 +60,9 @@ def compiled_capital_expenditure_projections():
 
     for i in range(len(hcpss_captial_total_expenditure())):
         capital_expenditure_projections = pd.DataFrame(columns=years)
-        capital_expenditure_projections.loc['HCPSS - Captial Costs'] =hcpss_captial_total_expenditure()[i].loc['Columbia':'South East',years].sum().mul(inflation().loc['rate'])
+        capital_expenditure_projections.loc['HCPSS - Capital Costs'] =hcpss_captial_total_expenditure()[i].loc['Columbia':'South East',years].sum().mul(inflation().loc['rate'])
         capital_expenditure_projections.loc['Non Departmental Services'] = non_departmental_per_capita_employee()[1].loc['Columbia':'South East',years].sum().mul(inflation().loc['rate']).cumsum()
-        capital_expenditure_projections.loc['Community College and Libraries - Captial Costs'] = hcc_captial_costs().loc['Columbia':'South East',years].sum().mul(inflation().loc['rate']).cumsum()\
+        capital_expenditure_projections.loc['Community College and Libraries - Capital Costs'] = hcc_captial_costs().loc['Columbia':'South East',years].sum().mul(inflation().loc['rate']).cumsum()\
             + hcl_captial_costs().loc['Columbia':'South East',years].sum().mul(inflation().loc['rate']).cumsum()
         if i == 0:
             capital_expenditure_projections.loc['Roads'] = road_expenditure_per_capita_employee()[road_index[i]].loc['Columbia':'South East',years].sum().mul(inflation().loc['rate']).cumsum()
@@ -71,6 +71,6 @@ def compiled_capital_expenditure_projections():
         capital_expenditure_projections.loc['Fire Stations'] = fire_stations_per_capita_employee()[1].loc['Columbia':'South East',years].sum().mul(inflation().loc['rate']) 
         capital_expenditure_projections.loc['Parks and Recreation'] = parks_recs_per_capita().loc['Columbia':'South East',years].sum().mul(inflation().loc['rate']).cumsum() 
         capital_expenditure_projections.loc['Other County'] = other_general_county_expenditure().loc['Community Renewal':'Bond Anticipation Notes', years].mul(inflation().loc['rate']).cumsum(axis=1).sum()
-        capital_expenditure_projections.loc['Total Capital Costs'] = capital_expenditure_projections.loc['HCPSS - Captial Costs':'Other County', years].sum().mul(inflation().loc['rate'])
+        capital_expenditure_projections.loc['Total Capital Costs'] = capital_expenditure_projections.loc['HCPSS - Capital Costs':'Other County', years].sum().mul(inflation().loc['rate'])
         capital_case_set[case1[i]] = capital_expenditure_projections
     return capital_case_set

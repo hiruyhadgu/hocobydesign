@@ -33,7 +33,7 @@ expander1 = st.expander('Total Public Facilities Expenses Projected Using Per-Ca
 with expander1:
     st.markdown('### Total Public Facilities Expenses Projected Using Per-Captia Factors')
     per_captia_to_display1 = public_facilities_per_capita()[1]
-    per_captia_to_display1.loc['Total'] = per_captia_to_display1.loc['Facilities - Adminstration':'Facilities - Maintenance', years].sum()
+    per_captia_to_display1.loc['Total'] = per_captia_to_display1.loc['Facilities - Administration':'Facilities - Maintenance', years].sum()
     st.dataframe(per_captia_to_display1.style.format('$ {:,.2f}'))
 
 st.markdown('---')
@@ -63,7 +63,7 @@ with expander6:
     st.markdown('### Total Public Facilities Expenses')
     todisplay = public_facilities_expenditure()
     # todisplay = todisplay.drop(index='Total')
-    todisplay.loc['Total'] = todisplay.loc['Facilities - Adminstration':'Soil Conservation District',years].sum()
+    todisplay.loc['Total'] = todisplay.loc['Facilities - Administration':'Soil Conservation District',years].sum()
     st.dataframe(todisplay.style.format('$ {:,.2f}'))
 
 # Use Local CSS File

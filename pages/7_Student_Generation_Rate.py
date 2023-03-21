@@ -7,6 +7,12 @@ regions = ['Columbia','Elkridge','Ellicott City', 'Rural West','South East']
 year1=2023
 years = [year1+x for x in range(18)]
 
+st.markdown("""
+The county states that student yields were provided for new construction by unit type from 2015 through 2019. These yields are shown in 
+the tables below by planning area and school type. The yields are multiplied times the projected number of units by unit type to 
+determine the number of students generated from future development. 
+""")
+
 st.markdown('---')
 
 expander1 = st.expander('Projected Elementary School Student Generation Rate by Planning Area')

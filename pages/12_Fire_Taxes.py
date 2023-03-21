@@ -12,7 +12,7 @@ st.markdown('---')
 
 expander = st.expander('Projected Fire Taxes by Planning Area')
 with expander:
-    select_region3 = st.selectbox('Select Planning Area',regions)
+    select_region3 = st.selectbox('**Select Planning Area**',regions)
     if select_region3:
         st.markdown('#### Residential Fire Tax Assessment')
         st.dataframe(project_fire_tax()[1][regions[regions.index(select_region3)]].style.format('$ {:,.2f}'))

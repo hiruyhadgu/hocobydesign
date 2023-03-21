@@ -16,7 +16,7 @@ total_fire_station_cost = fire_stations_per_capita_employee()[1]
 
 expander = st.expander('Projected Fire Stations Cost')
 with expander:
-    select_region = st.selectbox('Select Planning Area',regions, key=1)
+    select_region = st.selectbox('**Select Planning Area**',regions, key=1)
     if select_region:
         st.markdown('##### Projected Fire Stations Cost by Planning Area')
         st.dataframe(fire_station_cost_for_each_region[regions[regions.index(select_region)]].style.format('$ {:,.2f}'))

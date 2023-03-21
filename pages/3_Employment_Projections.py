@@ -4,7 +4,7 @@ from modules.employment_data import job_type
 st.header(':factory_worker: :farmer: :scientist: :office_worker: Projected Annual Employment')
 
 st.write("""
-The fiscal impact methdology and analysis assumes that 31,500 jobs will be created by 2040. The jobs
+The fiscal impact methodology and analysis assumes that 31,500 jobs will be created by 2040. The jobs
 are spread out among the planning areas. The total number of jobs are are divided by 18 years to calculate 
 jobs created per year.
 """)
@@ -18,7 +18,7 @@ years = [year1+x for x in range(18)]
 expander = st.expander('Projected Jobs by Plan Area')
 
 with expander:
-    select_planning_area = st.selectbox('Select Planning Area',regions)
+    select_planning_area = st.selectbox('**Select Planning Area:**',regions)
 
     if select_planning_area:
         st.markdown('#### Jobs Created by Plan Area')

@@ -20,7 +20,7 @@ years = [year1+x for x in range(18)]
 
 expander = st.expander('Taxes Projected Using Per-Captia Factors')
 with expander:
-    select_category = st.selectbox('Select Tax Category',per_capita_table.index.to_list())
+    select_category = st.selectbox('**Select Tax Category**',per_capita_table.index.to_list())
     if select_category:
         st.markdown('### Tax Categories Projected Using Per-Capita Factors')
         per_captia_to_display = per_capita()[0][select_category]
@@ -40,7 +40,7 @@ st.markdown('---')
 
 expander2 = st.expander('Taxes Projected Using Per-Employee Factors')
 with expander2:
-    select_category1 = st.selectbox('Select Tax Category',per_employee_table.index.to_list())
+    select_category1 = st.selectbox('**Select Tax Category**',per_employee_table.index.to_list())
     if select_category1:
         st.markdown('### Tax Categories Projected Using Per-Employee Factors')
         per_employee_to_display = per_employee()[0][select_category1]

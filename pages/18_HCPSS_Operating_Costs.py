@@ -10,11 +10,20 @@ years = [year1+x for x in range(18)]
 
 st.markdown('---')
 
+st.markdown("""
+
+""")
+
 expander = st.expander('Historical Operating Budget and Total Student Enrollment')
 with expander:
     st.dataframe(school_operating_budget().style.format('$ {:,.2f}'))
 
 st.markdown('---')
+
+st.markdown("""
+The number of students is then multiplied times the per student operating cost discussed above to generate the projected overall school 
+operating costs.
+""")
 
 expander1 = st.expander('Projected Total Operating Cost HoCoByDesign Method')
 with expander1:

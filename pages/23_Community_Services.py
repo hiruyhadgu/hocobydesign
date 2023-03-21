@@ -19,7 +19,7 @@ years = [year1+x for x in range(18)]
 
 expander = st.expander('Community Services Expenditure Projected Using Per-Captia Factors')
 with expander:
-    select_category = st.selectbox('Select Expense Category',per_capita_table.index.to_list())
+    select_category = st.selectbox('**Select Expense Category**',per_capita_table.index.to_list())
     if select_category:
         st.markdown('### Public Facilities Expenses Projected Using Per-Captia Factors')
         per_captia_to_display = community_services_per_capita()[0][select_category]

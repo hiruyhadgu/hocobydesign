@@ -19,7 +19,7 @@ years = [year1+x for x in range(18)]
 expander = st.expander('Projected Non Residential Addition by Square Footage and Assessments')
 with expander:
 
-    select_region2 = st.selectbox('Select Planning Area',regions)
+    select_region2 = st.selectbox('**Select Planning Area:**',regions)
 
     if select_region2:
         reg = regions[regions.index(select_region2)]

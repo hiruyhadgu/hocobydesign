@@ -103,7 +103,7 @@ operation and capital expenditure.
 """)
             
 index = fiscal_impact_results.index.to_list()
-selected = st.selectbox('Pick a projection approach to read the description of each approach.', index)
+selected = st.selectbox('Select a projection approach to read the description of each approach:', index)
             
 fiscal_approach_description = [f"""
 **{selected}:** This case reproduces the County's results, by separating total school operating and capital expenditure into, State, County,

@@ -13,7 +13,7 @@ st.markdown('---')
 
 expander = st.expander('Projected Road Excise Taxes by Planning Area')
 with expander:
-    select_region = st.selectbox('Select Planning Areas',regions)
+    select_region = st.selectbox('**Select Planning Areas**',regions)
     if select_region:
         st.markdown('#### Residential Road Excise Taxes by Planning Area')
         to_display = res_road_excise_tax()[regions[regions.index(select_region)]]

@@ -12,7 +12,7 @@ st.markdown('---')
 
 expander = st.expander('Projected Transfer Taxes By Planning Area')
 with expander:
-    select_region = st.selectbox('Select Planning Area',regions)
+    select_region = st.selectbox('**Select Planning Area**',regions)
     if select_region:
         st.markdown('#### Transfer Taxes by Planning Area')
         display_transfer_tax = transfer_tax()[0][regions[regions.index(select_region)]]

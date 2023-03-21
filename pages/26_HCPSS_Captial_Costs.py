@@ -27,7 +27,7 @@ The third method further modifies the county's approach as follows: 100% PAYGO u
 
 expander = st.expander('Projection of School Capacity Costs by Different Methodologies')
 with expander:
-    select_method = st.selectbox('Pick a Method',method, key=3)
+    select_method = st.selectbox('**Pick a Method**',method, key=3)
     if select_method == method[0]:
         display_projected_cost = projected_school_construction_hocobydesign_method()
         display_cip_cost = cip_hocobydesign_method()
@@ -94,9 +94,9 @@ st.markdown('---')
 
 col1, col2 = st.columns(2)
 with col1:
-    select_region = st.selectbox('Select Planning Area',regions, key=1)
+    select_region = st.selectbox('**Select Planning Area**',regions, key=1)
 with col2:
-    select_school_type = st.selectbox('Select School Type',school_type, key=2)
+    select_school_type = st.selectbox('**Select School Type**',school_type, key=2)
 
 expander1 = st.expander('Projected School Construction and Land Acquisition Cost by Planning Area HoCoByDesign Method')
 with expander1:

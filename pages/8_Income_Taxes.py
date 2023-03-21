@@ -9,15 +9,15 @@ years = [year1+x for x in range(18)]
 st.header('💵 Projected Income Tax Revenue')
 
 st.write("""
-The fiscal impact methdology and analysis calculates per unit income tax revenue and these values are
-multiplied by the number of projected units to calculate the annual income taxs.
+The fiscal impact methodology and analysis calculates per unit income tax revenue and these values are multiplied by the 
+number of projected units to calculate the annual income taxes.
 """)
          
 st.markdown('---')
 
 expander = st.expander('Income Tax Projection by Planning Area')
 with expander:
-    selected_region1=st.selectbox('Select Planning Area',regions)
+    selected_region1=st.selectbox('**Select Planning Area**',regions)
     if selected_region1:
         st.markdown('#### Income Taxes By Planning Area')
         to_display1 = project_income_tax()[1][regions[regions.index(selected_region1)]]

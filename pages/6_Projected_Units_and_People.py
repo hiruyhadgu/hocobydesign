@@ -4,7 +4,7 @@ from modules.projected_units import plan_area, people_generated
 st.header(':house_buildings: :people_holding_hands: Projected Units and Population')
 
 st.write("""
-The fiscal impact methdology and analysis assumes that 25,000 units will be developed by 2040.
+The fiscal impact methodology and analysis assumes that 25,000 units will be developed by 2040.
 The total number of units are divided by 18 years to calculate the number of units per year. Also,
 the number of people per unit (see Assumptions and Constants) are used to calculate the increase in
 population per year.
@@ -19,7 +19,7 @@ years = [year1+x for x in range(18)]
 expander = st.expander('Projected Units and Employment by Plan Area')
 
 with expander:
-    select_planning_area = st.selectbox('Select Planning Area',regions)
+    select_planning_area = st.selectbox('**Select Planning Area**',regions)
     if select_planning_area:
         st.markdown('#### Number of Units by Plan Area')
         display_units_by_plan_area = plan_area()[0][select_planning_area]

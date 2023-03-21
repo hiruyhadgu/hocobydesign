@@ -9,8 +9,8 @@ years = [year1+x for x in range(18)]
 st.header(':hotel: Projected Hotels and Motels Taxes')
 
 st.write("""
-The fiscal impact methdology and analysis calculates per unit income tax revenue and these values are
-multiplied by the number of projected units to calculate the annual income taxs.
+The fiscal impact methodology and analysis calculates per unit income tax revenue and these values are
+multiplied by the number of projected units to calculate the annual income taxes.
 """)
 
 st.markdown('---')

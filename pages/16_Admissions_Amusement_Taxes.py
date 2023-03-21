@@ -9,15 +9,15 @@ years = [year1+x for x in range(18)]
 st.header(':admission_tickets: Projected Admissions and Amusement Revenues')
 
 st.write("""
-The fiscal impact methdology and analysis calculates per unit income tax revenue and these values are
-multiplied by the number of projected units to calculate the annual income taxs.
+The fiscal impact methodology and analysis calculates per unit income tax revenue and these values are
+multiplied by the number of projected units to calculate the annual income taxes.
 """)
 
 st.markdown('---')
 
 expander = st.expander('Admissions and Amusement Taxes by Planning Area')
 with expander:
-    select_region = st.selectbox('Select Planning Area',regions)
+    select_region = st.selectbox('**Select Planning Area**',regions)
     st.markdown('#### Admission and Amusement Taxes by Planning Area')
     if select_region:
         st.dataframe(admission_amusement()[0][regions[regions.index(select_region)]].style.format('$ {:,.2f}'))

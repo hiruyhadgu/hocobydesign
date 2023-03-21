@@ -9,9 +9,9 @@ years = [year1+x for x in range(18)]
 st.header('💵 Projected Property Tax Revenues')
 
 st.write("""
-The fiscal impact methdology and analysis computes property taxes from real property taxes, personal/merchant taxes,
+The fiscal impact methodology and analysis computes property taxes from real property taxes, personal/merchant taxes,
 and penalties as a fraction of real property taxes. Real property taxes are calculated as assessed value times
-(1.014+0.08)/100 +325
+(\\$1.014 + \\$0.08)/100 + \\$325.
 """)
 
 st.markdown('---')

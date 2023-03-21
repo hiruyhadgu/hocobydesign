@@ -19,7 +19,7 @@ st.markdown('---')
 
 expander = st.expander('Market and Assessed Values by Planning Area')
 with expander:
-    selected_region=st.selectbox('Select Planning Area',all_regions)
+    selected_region=st.selectbox('**Select Planning Area:**',all_regions)
     if selected_region:
         to_display = assessment_tables()[assessed_cat[all_regions.index(selected_region)]]
         to_display.set_index('Category', inplace=True)

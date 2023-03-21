@@ -12,7 +12,7 @@ st.markdown('---')
 
 expander = st.expander('Projected School Surcharge Fees by Planning Area')
 with expander:
-    select_region = st.selectbox('Select Planning Areas',regions)
+    select_region = st.selectbox('**Select Planning Areas**',regions)
     st.markdown('#### School Surcharge Fees by Planning Area')
     if select_region:
         st.dataframe(school_surcharge()[0][regions[regions.index(select_region)]].style.format('$ {:,.2f}'))

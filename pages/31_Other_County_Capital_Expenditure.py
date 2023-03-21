@@ -21,7 +21,7 @@ years = [year1+x for x in range(18)]
 
 expander = st.expander('General County Bonds Projected Using Per-Captia Factors')
 with expander:
-    select_category = st.selectbox('Select Expense Category',per_capita_table.index.to_list())
+    select_category = st.selectbox('**Select Expense Category**',per_capita_table.index.to_list())
     if select_category:
         st.markdown('### General County Bonds Projected Using Per-Captia Factors')
         per_captia_to_display = other_general_county_bonds_per_capita()[0][select_category]
@@ -41,7 +41,7 @@ st.markdown('---')
 
 expander4 = st.expander('General County Bonds Projected Using Per-Captia and Employee Factors')
 with expander4:
-    select_category2 = st.selectbox('Select Expense Category',per_capita_employee_table.index.to_list())
+    select_category2 = st.selectbox('**Select Expense Category**',per_capita_employee_table.index.to_list())
     if select_category2:
         st.markdown('### General County Bonds Projected Using Per Capita & Employee Factors')
         per_captia_employee_to_display = other_general_county_bonds_per_capita_employee()[0][select_category2]
