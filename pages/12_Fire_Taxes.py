@@ -10,6 +10,11 @@ st.header(':fire_engine: Projected Fire Taxes')
 
 st.markdown('---')
 
+st.markdown("""
+The County states that assessed valuations of future residential and nonresidential growth are multiplied times the \\$0.236 per 
+\\$100 rate to determine future Fire and Rescue Reserve Fund revenues.
+""")
+
 expander = st.expander('Projected Fire Taxes by Planning Area')
 with expander:
     select_region3 = st.selectbox('**Select Planning Area**',regions)

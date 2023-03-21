@@ -10,6 +10,12 @@ st.header('💵 Projected Transfer Taxes')
 
 st.markdown('---')
 
+st.markdown("""
+The County uses a 1.25% Transfer Tax on all property transfers. Transfer tax categories are dividied into five, see the Assumptions section
+for a breakdown of how the revenue is allocated. For example, the portion generated for School Land Acquisition and Construction (0.3125%) 
+is used to pay for the debt service associated with school capital costs.
+""")
+
 expander = st.expander('Projected Transfer Taxes By Planning Area')
 with expander:
     select_region = st.selectbox('**Select Planning Area**',regions)

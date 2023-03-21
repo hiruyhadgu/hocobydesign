@@ -10,6 +10,12 @@ st.header('💵 Projected School Surcharge Fees')
 
 st.markdown('---')
 
+st.markdown("""
+The following tables show the school surcharge revenues expected due to new residential development by planning area and total revenues.
+Note that the County uses school surcharge revenue to issue bonds to finance new projects and pay back debt for projects associated with
+previous residential developments.
+""")
+
 expander = st.expander('Projected School Surcharge Fees by Planning Area')
 with expander:
     select_region = st.selectbox('**Select Planning Areas**',regions)

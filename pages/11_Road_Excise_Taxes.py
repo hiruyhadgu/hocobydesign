@@ -11,6 +11,11 @@ st.header(':vertical_traffic_light: Projected Road Excise Taxes')
 
 st.markdown('---')
 
+st.markdown("""
+Road excise taxes have not changed much over the years. The County assumes a fee of \\$1.67 per square foot, which explains why the county
+finances 100% of road projects with debt.
+""")
+
 expander = st.expander('Projected Road Excise Taxes by Planning Area')
 with expander:
     select_region = st.selectbox('**Select Planning Areas**',regions)

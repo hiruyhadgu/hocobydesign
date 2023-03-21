@@ -11,7 +11,7 @@ years = [year1+x for x in range(18)]
 
 total_hcc_capital_costs = pd.DataFrame(columns=years)
 hcc_capital_cost_per_capita = hcc_data().loc['Average','Capital Funds']/hoco_population().loc['2022']
-def hcc_captial_costs():
+def hcc_capital_costs():
     
     total_hcc_capital_costs = people_generated()[1].mul(hcc_capital_cost_per_capita.squeeze())
     total_hcc_capital_costs.loc['Total'] = total_hcc_capital_costs.loc['Columbia':'South East',years].sum()
@@ -22,7 +22,7 @@ def hcc_captial_costs():
 
 total_hcl_capital_costs = pd.DataFrame(columns=years)
 hcl_capital_cost_per_capita = 10.5
-def hcl_captial_costs():
+def hcl_capital_costs():
     
     total_hcl_capital_costs = people_generated()[1].mul(hcl_capital_cost_per_capita)
     total_hcl_capital_costs.loc['Total'] = total_hcl_capital_costs.loc['Columbia':'South East',years].sum()

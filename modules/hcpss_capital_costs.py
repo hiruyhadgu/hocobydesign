@@ -105,9 +105,9 @@ def land_acquisition_total_funding_method():
         high_school_land_acquisition_by_planning_area, total_land_acquisition_by_planning_area
 
 @st.cache_data
-def hcpss_captial_total_expenditure():
-    total_school_captial_costs_hocobydesign_method = projected_school_construction_hocobydesign_method()[4]+projected_school_construction_hocobydesign_method()[5]+cip_hocobydesign_method()+land_acquisition_hocobydesign_method()[3]
-    total_school_captial_costs_full_funds_and_debt = projected_school_construction_hocobydesign_method()[3]+projected_school_construction_hocobydesign_method()[5]+cip_hocobydesign_method()+land_acquisition_hocobydesign_method()[3]
-    total_school_captial_costs_total_funding = projected_school_construction_total_funding_method()[3]+cip_total_funding_method()+land_acquisition_total_funding_method()[3]
+def hcpss_capital_total_expenditure():
+    total_school_capital_costs_hocobydesign_method = projected_school_construction_hocobydesign_method()[4]+projected_school_construction_hocobydesign_method()[5]+cip_hocobydesign_method()+land_acquisition_hocobydesign_method()[3]
+    total_school_capital_costs_full_funds_and_debt = projected_school_construction_hocobydesign_method()[3]+projected_school_construction_hocobydesign_method()[5]+cip_hocobydesign_method()+land_acquisition_hocobydesign_method()[3]
+    total_school_capital_costs_total_funding = projected_school_construction_total_funding_method()[3]+cip_total_funding_method()+land_acquisition_total_funding_method()[3]
 
-    return total_school_captial_costs_hocobydesign_method, total_school_captial_costs_full_funds_and_debt, total_school_captial_costs_total_funding
+    return total_school_capital_costs_hocobydesign_method, total_school_capital_costs_full_funds_and_debt, total_school_capital_costs_total_funding

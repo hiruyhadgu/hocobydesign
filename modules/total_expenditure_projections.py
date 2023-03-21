@@ -6,8 +6,8 @@ from modules.fire_and_rescue import project_fire_rescue
 from modules.public_facilities import public_facilities_expenditure
 from modules.community_services import community_services_per_capita
 from modules.other_general_government import other_general_govt_total
-from modules.hcpss_captial_costs import hcpss_captial_total_expenditure
-from modules.community_college_and_libraries_capital_costs import hcl_captial_costs, hcc_captial_costs
+from modules.hcpss_capital_costs import hcpss_capital_total_expenditure
+from modules.community_college_and_libraries_capital_costs import hcl_capital_costs, hcc_capital_costs
 from modules.road_expenditure import road_expenditure_per_capita_employee
 from modules.fire_stations import fire_stations_per_capita_employee
 from modules.parks_and_rec_capital_cost import parks_recs_per_capita
@@ -58,12 +58,12 @@ sum_road_exp = [1,0,0]
 @st.cache_data
 def compiled_capital_expenditure_projections():
 
-    for i in range(len(hcpss_captial_total_expenditure())):
+    for i in range(len(hcpss_capital_total_expenditure())):
         capital_expenditure_projections = pd.DataFrame(columns=years)
-        capital_expenditure_projections.loc['HCPSS - Capital Costs'] =hcpss_captial_total_expenditure()[i].loc['Columbia':'South East',years].sum().mul(inflation().loc['rate'])
+        capital_expenditure_projections.loc['HCPSS - Capital Costs'] =hcpss_capital_total_expenditure()[i].loc['Columbia':'South East',years].sum().mul(inflation().loc['rate'])
         capital_expenditure_projections.loc['Non Departmental Services'] = non_departmental_per_capita_employee()[1].loc['Columbia':'South East',years].sum().mul(inflation().loc['rate']).cumsum()
-        capital_expenditure_projections.loc['Community College and Libraries - Capital Costs'] = hcc_captial_costs().loc['Columbia':'South East',years].sum().mul(inflation().loc['rate']).cumsum()\
-            + hcl_captial_costs().loc['Columbia':'South East',years].sum().mul(inflation().loc['rate']).cumsum()
+        capital_expenditure_projections.loc['Community College and Libraries - Capital Costs'] = hcc_capital_costs().loc['Columbia':'South East',years].sum().mul(inflation().loc['rate']).cumsum()\
+            + hcl_capital_costs().loc['Columbia':'South East',years].sum().mul(inflation().loc['rate']).cumsum()
         if i == 0:
             capital_expenditure_projections.loc['Roads'] = road_expenditure_per_capita_employee()[road_index[i]].loc['Columbia':'South East',years].sum().mul(inflation().loc['rate']).cumsum()
         else:

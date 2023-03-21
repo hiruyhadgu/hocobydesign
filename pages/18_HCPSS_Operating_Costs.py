@@ -21,8 +21,10 @@ with expander:
 st.markdown('---')
 
 st.markdown("""
-The number of students is then multiplied times the per student operating cost discussed above to generate the projected overall school 
-operating costs.
+The number of students generated is multiplied with the per student operating cost to generate the projected overall school operating costs.
+The County's methodology understimates the cost because it excluded the State's share of the funding obligation. This approach is 
+risky, because how the County choses to bridge the gap does not eliminate the funding obligation. Ultimately the County is responsible
+and the all-in cost of operating a school should be used to determine the impact.
 """)
 
 expander1 = st.expander('Projected Total Operating Cost HoCoByDesign Method')

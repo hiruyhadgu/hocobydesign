@@ -1,5 +1,5 @@
 import streamlit as st
-from modules.hcpss_captial_costs import projected_school_construction_hocobydesign_method, cip_hocobydesign_method,\
+from modules.hcpss_capital_costs import projected_school_construction_hocobydesign_method, cip_hocobydesign_method,\
       land_acquisition_hocobydesign_method, projected_school_construction_total_funding_method, cip_total_funding_method,\
       land_acquisition_total_funding_method, hcpss_captial_total_expenditure
 
