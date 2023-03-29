@@ -21,8 +21,8 @@ The fiscal impact analysis concludes that *new growth would generate more revenu
 infrastructure.* Several assumptions are made in the entire analysis about residential development, which also 
 revealed county budgeting practices, to enable this assertion. Before delving in to the other assumptions, a financial 
 analyst would look at the results table and immediately notice something strange. The **Average Annual** column of the results 
-table takes the simple average of the annual revenue and expenditure results and takes their difference to obtain \\$52,466,000 
-in net average revenues. Next, the first year net revenue is shown to be \\$30,264,000.
+table takes the simple average of the annual revenue and expenditure results and takes their difference to obtain \\$58,872,000 
+in net average revenues. Next, the first year net revenue is shown to be \\$29,791,000.
 """)
 
 st.markdown("#### Two Basic Major Issues")
